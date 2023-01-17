@@ -1,4 +1,27 @@
 {
-
+"todolist": "قائمة المهام",
+"addnewtask": "إضافة مهمة جديدة",
+"title": "العنوان",
+"description": "الوصف",
+"selectdate": "اختار التاريخ",
+"addtask": "إضافة مهمة",
+"delete": "حذف",
+"edit": "تعديل",
+"edittask": "تعديل المهمة",
+"setting": "الإعداد",
+"language":"اللغة",
+"english":"الانجليزية",
+"arabic":"العربية",
+"mode":"الوضع",
+"light":"الوضع الصباحي",
+"dark":"الوضع الليلي",
+"pleaseentertasktitle": "من فضلك ادخل العنوان",
+"pleaseentertaskdescription": "من فضلك ادخل الوصف",
+"loading":"تحميل",
+"taskeditsuccessfuly":"تم التعديل بنجاح",
+"ok":"تم",
+"cancel":"الغاء",
+"taskaddsuccessfuly":"تم الإضافة بنجاح",
+"somethingwentwrong":"هناك شئ خطأ"
 
 }

@@ -1,4 +1,26 @@
 {
-
-
+"todolist": "To Do List",
+"addnewtask": "Add New Task",
+"title": "Title",
+"description": "Description",
+"selectdate": "Select Date",
+"addtask": "Add Task",
+"delete": "Delete",
+"edit": "Edit",
+"edittask": "Edit Task",
+"setting": "Setting",
+"language": "Language",
+"english": "English",
+"arabic": "Arabic",
+"mode": "Mode",
+"light": "Light",
+"dark": "Dark",
+"pleaseentertasktitle": "Please Enter Task Title",
+"pleaseentertaskdescription": "Please Enter Task Description",
+"loading":"Loading",
+"taskeditsuccessfuly":"Task edit successfuly",
+"ok":"Ok",
+"cancel":"Cancel",
+"taskaddsuccessfuly":"Task add successfuly",
+"somethingwentwrong":"Something went wrong"
 }
