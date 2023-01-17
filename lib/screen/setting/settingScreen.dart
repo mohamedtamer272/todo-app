@@ -1,9 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_application/screen/setting/LanguageBottomSheet.dart';
 import 'package:todo_application/screen/setting/ModeBottomSheet.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../provider/LanguageProvider.dart';
+import '../../provider/ThemeProvider.dart';
 import '../../shared/styles/MyTheme.dart';
 import '../../shared/styles/colors.dart';
 
@@ -12,6 +13,8 @@ class settingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<LanguageProvider>(context);
+    var themeprovider = Provider.of<ThemeProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -23,8 +26,8 @@ class settingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(45, 95, 0, 0),
-                  child: Text('Setting',
+                  padding: const EdgeInsets.fromLTRB(45, 95, 45, 0),
+                  child: Text(AppLocalizations.of(context)!.setting,
                       style: MyThemeData.LightTheme.textTheme.headline1
                           ?.copyWith(fontSize: 30)),
                 ),
@@ -34,11 +37,14 @@ class settingScreen extends StatelessWidget {
           height: 50,
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
           child: Text(
-            'Language',
-            style: MyThemeData.LightTheme.textTheme.headline1
-                ?.copyWith(color: ColorBlack),
+            AppLocalizations.of(context)!.language,
+            style: Theme.of(context).textTheme.headline1?.copyWith(
+                color: themeprovider.theme == ThemeMode.light
+                    ? ColorBlack
+                    : ColorWhite,
+                fontSize: 30),
           ),
         ),
         SizedBox(
@@ -55,23 +61,38 @@ class settingScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: ColorWhite,
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              border: Border.all(width: 3, color: ColorBlack),
+              border: Border.all(
+                width: 3,
+                color: themeprovider.theme == ThemeMode.light
+                    ? ColorBlack
+                    : ColorBlue,
+              ),
             ),
             child: Text(
-                'English',
-                style: TextStyle(color:Colors.black,fontSize: 20,fontWeight: FontWeight.bold )
+              provider.language == 'en'
+                  ? AppLocalizations.of(context)!.english
+                  : AppLocalizations.of(context)!.arabic,
+              style: Theme.of(context).textTheme.headline1?.copyWith(
+                    fontSize: 20,
+                    color: ColorBlack,
+                  ),
             ),
           ),
         ),
         SizedBox(
-          height: 50,
+          height: 40,
         ),
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
           child: Text(
-            'Mode',
-            style: MyThemeData.LightTheme.textTheme.headline1
-                ?.copyWith(color: ColorBlack),
+            themeprovider.theme == ThemeMode.dark
+                ? AppLocalizations.of(context)!.dark
+                : AppLocalizations.of(context)!.light,
+            style: Theme.of(context).textTheme.headline1?.copyWith(
+                color: themeprovider.theme == ThemeMode.light
+                    ? ColorBlack
+                    : ColorWhite,
+                fontSize: 30),
           ),
         ),
         SizedBox(
@@ -88,11 +109,18 @@ class settingScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: ColorWhite,
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              border: Border.all(width: 3, color: ColorBlack),
+              border: Border.all(width: 3, color: themeprovider.theme == ThemeMode.light
+                  ? ColorBlack
+                  : ColorBlue,),
             ),
             child: Text(
-                'Light',
-                style: TextStyle(color:Colors.black,fontSize: 20,fontWeight: FontWeight.bold )
+              themeprovider.theme == ThemeMode.light
+                  ? AppLocalizations.of(context)!.light
+                  : AppLocalizations.of(context)!.dark,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline1
+                  ?.copyWith(color: ColorBlack, fontSize: 20),
             ),
           ),
         ),
@@ -108,6 +136,7 @@ class settingScreen extends StatelessWidget {
       },
     );
   }
+
   void ShowModeBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,

@@ -47,7 +47,7 @@ class MyThemeData {
   );
   static ThemeData DarkTheme = ThemeData(
     colorScheme: ColorScheme(
-      primary: DarkColorBlack,
+      primary: ColorBlue,
       onPrimary: ColorWhite,
       background: Colors.transparent,
       onBackground: ColorWhite,
@@ -65,11 +65,13 @@ class MyThemeData {
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: ColorBlue,
+
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: ColorBlack,
       selectedItemColor: ColorBlue,
       unselectedItemColor: ColorGray,
+
     ),
     textTheme: TextTheme(
         headline1: TextStyle(
